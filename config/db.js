@@ -4,6 +4,7 @@ const Chalk = require('chalk');
 const loadDummyData = require('./utils/load');
 
 const dbUrl = process.env.MONGODB_CONNECTION_STRING;
+console.log(`MONGODB_CONNECTION_STRING:>${dbUrl}<`)
 
 if (!dbUrl) {
   console.error(
