@@ -8,9 +8,9 @@ connectDB();
 const DEFAULT_PORT = 3000;
 const PORT = process.env.PORT || DEFAULT_PORT;
 
-console.log(process.env.ENV1);
-console.log(process.env.ENV2);
-console.log(process.env.ENV3);
+// console.log(process.env.ENV1);
+// console.log(process.env.ENV2);
+// console.log(process.env.ENV3);
 
 server.listen(PORT, () => {
   console.info(
