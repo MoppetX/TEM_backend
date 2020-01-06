@@ -68,12 +68,15 @@ services:
         # - MONGO_INITDB_DATABASE='tem'
         # - MONGO_INITDB_ROOT_USERNAME='tem'
         # - MONGO_INITDB_ROOT_PASSWORD='secret'
+        environment:
+            MONGODB_PORT: '27107'
         healthcheck:
             test: echo 'db.runCommand("ping").ok' | mongo localhost:${MONGODB_PORT:-27017}/test --quiet
         volumes:
-            - ./tem-mongo-volume:/data/db
+            - ./tem-mongo-data-db:/data/db
         ports:
-            - ${MONGODB_PORT:-27017}:27017
+            # - ${MONGODB_PORT:-27017}:27017
+            - 27018:27017
 
     postgres:
         image: postgres
