@@ -25,14 +25,11 @@ const connectDB = async () => {
       useUnifiedTopology: true,
       useCreateIndex: true,
     });
-
     console.log(`SUCCESS: MongoDB Connected to ${dbUrl}`);
 
-    console.log(process.env.LOAD_SEED_DATA);
-    console.log(typeof process.env.LOAD_SEED_DATA);
-    if (process.env.LOAD_SEED_DATA) {
+    if (process.env.LOAD_SEED_DATA === 'true') {
       await loadDummyData();
-      console.log('SUCCESS: Seed, data loaded');
+      console.log('SUCCESS: Seed data loaded');
     }
   } catch (err) {
     // console.error(err);
