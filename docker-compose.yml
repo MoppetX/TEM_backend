@@ -28,9 +28,8 @@ services:
         build: TEM_frontend
         environment:
             PORT: '8080'
-            TEM_BACKEND_PORT: '3000'
             TEM_FRONTEND_PORT: '8080'
-            REACT_APP_API_URL: 'http://localhost:${TEM_BACKEND_PORT}'
+            REACT_APP_API_URL: 'http://localhost:3000'
         ports:
             - ${TEM_FRONTEND_PORT:-8080}:8080
         depends_on:
@@ -46,7 +45,7 @@ services:
                 max-file: '5'
         build: TEM_backend
         healthcheck:
-            test: curl -f http://127.0.0.1:${TEM_BACKEND_PORT:-3000}
+            test: echo "BANZAI backend healthcheck" && curl -f http://127.0.0.1:3000
         environment:
             LOAD_SEED_DATA: 'true'
             MONGODB_CONNECTION_STRING: 'mongodb://mongodb/tem'
@@ -74,7 +73,7 @@ services:
         environment:
             MONGODB_PORT: '27107'
         healthcheck:
-            test: echo 'db.runCommand("ping").ok' | mongo localhost:${MONGODB_PORT:-27017}/test --quiet
+            test: echo "BANZAI db healthcheck" && echo 'db.runCommand("ping").ok' | mongo localhost:${MONGODB_PORT:-27017}/test --quiet
         volumes:
             - ./tem-mongo-data-db:/data/db
         ports:
@@ -85,18 +84,18 @@ services:
         image: postgres
         healthcheck:
             disable: true # test: ["NONE"]
-            # test: pg_isready -U postgres -h 127.0.0.1
+            # test: echo "BANZAI postgres healthcheck" && pg_isready -U postgres -h 127.0.0.1
 
     mongo:
         image: mongo
         healthcheck:
             disable: true # test: ["NONE"]
-            # test: echo 'db.runCommand("ping").ok' | mongo localhost:${MONGODB_PORT:-27017}/test --quiet
+            # test: echo "BANZAI mongo healthcheck" && echo 'db.runCommand("ping").ok' | mongo localhost:${MONGODB_PORT:-27017}/test --quiet
 
     mysql:
         image: mysql
         healthcheck:
             disable: true # test: ["NONE"]
-            # test: mysqladmin ping -h 127.0.0.1
+            # test: echo "BANZAI mysql healthcheck" && mysqladmin ping -h 127.0.0.1
         environment:
             - MYSQL_ALLOW_EMPTY_PASSWORD=true
