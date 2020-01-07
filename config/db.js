@@ -3,7 +3,11 @@ const mongoose = require('mongoose');
 const Chalk = require('chalk');
 const loadDummyData = require('./utils/load');
 
-const dbUrl = process.env.MONGODB_CONNECTION_STRING;
+let dbUrl
+dbUrl = process.env.MONGODB_CONNECTION_STRING;
+console.log(`MONGODB_CONNECTION_STRING:>${dbUrl}<`)
+dbUrl = "mongodb://db:27017/tem"
+console.log(`MONGODB_CONNECTION_STRING:>${dbUrl}<`)
 
 if (!dbUrl) {
   console.error(
