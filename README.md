@@ -5,7 +5,7 @@
 # 🥒 🥧 🍒 🍕 🍰 🍮 🥟 🥬 🍗 🍛 🌽 🍐 🍞 🥑 🥨 🥕 🥮 
 
 ## How to Run
-1) download both the [tem_frontend](https://github.com/MoppetX/TEM_frontend "the frontend") && [tem_backend](https://github.com/MoppetX/TEM_backend "the backend") repos
+1) download both the [tem_frontend](https://github.com/MoppetX/TEM_frontend "the other end") && [tem_backend](https://github.com/MoppetX/TEM_backend "the backend") repos
 2) move the `docker-compose.yml` file (exists in both repos) up a level
 3) run `time docker-compose up -d`
 
