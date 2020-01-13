@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-  <title>svg_main_menu</title>
-  <g id="bg">
-    <path id="Path_264" data-name="Path 264" d="M0,0H30V30H0Z" style="fill: none"/>
-  </g>
-  <g id="icon">
-    <path id="Path_1993" data-name="Path 1993" d="M15,10.53A19.35,19.35,0,0,0,1.73,5.3V21.51A19.41,19.41,0,0,1,15,26.75a19.41,19.41,0,0,1,13.27-5.24V5.3A19.35,19.35,0,0,0,15,10.53Z"/>
-  </g>
-</svg>

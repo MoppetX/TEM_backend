@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const Chalk = require('chalk');
 const loadDummyData = require('./utils/load');
 
-const dbUrl = process.env.MONGODB_CONNECTION_STRING;
+let dbUrl;
+dbUrl = process.env.MONGODB_CONNECTION_STRING;
 
 if (!dbUrl) {
   console.error(
@@ -24,21 +25,20 @@ const connectDB = async () => {
       useUnifiedTopology: true,
       useCreateIndex: true,
     });
+    console.log(`SUCCESS: MongoDB Connected to ${dbUrl}`);
 
-    console.log(`MongoDB Connected to ${dbUrl}`);
-
-    if (process.env.LOAD_SEED_DATA) {
+    if (process.env.LOAD_SEED_DATA === 'true') {
       await loadDummyData();
-      console.log('Seed, data loaded');
+      console.log('SUCCESS: Seed data loaded');
     }
   } catch (err) {
     // console.error(err);
-    console.error(err.message);
-    console.error(`MONGODB_CONNECTION_STRING set to >${dbUrl}<`);
+    console.error(`ERROR: ${err.message}`);
+    console.error(`ERROR: MONGODB_CONNECTION_STRING set to >${dbUrl}<`);
     // Exit process with failure
     process.exit(1);
   }
-  console.log('Backend startup complete');
+  console.log('SUCCESS: Backend startup complete');
 };
 
 module.exports = connectDB;
