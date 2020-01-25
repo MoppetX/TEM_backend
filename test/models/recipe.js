@@ -50,7 +50,7 @@ const testInput = (input, index, t, property, errorMessages) => {
 
 test('creating a recipe with invalid title', async t => {
   const property = 'title';
-  const badInputs = [null, 'e', 'sssssssssssssssssssssssssssssss'];
+  const badInputs = [null, 'e', '1234567890 1234567890 1234567890 1234567890'];
   const errorMessages = getErrMsgArray(property);
 
   badInputs.forEach((input, index) => {
