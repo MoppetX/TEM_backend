@@ -52,7 +52,7 @@ const loadDummyData = async () => {
       'Food qualities braise chicken cuts bowl through slices butternut snack.',
       'Tender meat juicy dinners. One-pot low heat plenty of time adobo fat raw soften fruit. sweet renders bone-in marrow richness kitchen, fricassee basted pork shoulder.',
       'Delicious butternut squash hunk. Flavor centerpiece plate, delicious ribs bone-in meat, excess chef end. sweet effortlessly pork, low heat smoker soy sauce flavor meat, rice fruit fruit. Romantic fall-off-the-bone butternut chuck rice burgers.',
-      "Juicy meatballs brisket slammin' baked shoulder. Juicy smoker soy sauce burgers brisket. polenta mustard hunk greens.",
+      'Juicy meatballs brisket slammin\' baked shoulder. Juicy smoker soy sauce burgers brisket. polenta mustard hunk greens.',
       'Wine technique snack skewers chuck excess. Oil heat slowly.',
     ],
     ingredients: [
@@ -78,7 +78,10 @@ const loadDummyData = async () => {
 
   const recipe1 = {
     title: 'Eggs Benedict',
-    img: 'eggsBenny.jpeg',
+    images: {
+      large: ['eggsBenny.jpeg', 'eggsBenny.jpeg'],
+      thumb: 'eggsBenny_small.jpeg',
+    },
     cookingTime: 5,
     servingSize: randomBetween(1, 12),
     versions: [mockVersion],
@@ -86,7 +89,10 @@ const loadDummyData = async () => {
 
   const recipe2 = {
     title: 'Orange Miso Salmon Surprise',
-    img: 'orangeSalmon.jpeg',
+    images: {
+      large: ['orangeSalmon.jpeg', 'orangeSalmon.jpeg'],
+      thumb: 'orangeSalmon.jpeg',
+    },
     cookingTime: randomBetween(5, 90),
     servingSize: randomBetween(1, 12),
     versions: [mockVersion],
@@ -94,7 +100,10 @@ const loadDummyData = async () => {
 
   const recipe3 = {
     title: 'Red Beets Winter Salad',
-    img: 'redBeetSalad.jpeg',
+    images: {
+      large: ['redBeetSalad.jpeg', 'redBeetSalad.jpeg', 'redBeetSalad.jpeg'],
+      thumb: 'redBeetSalad.jpeg',
+    },
     cookingTime: randomBetween(5, 90),
     servingSize: randomBetween(1, 12),
     versions: [mockVersion],
@@ -102,7 +111,10 @@ const loadDummyData = async () => {
 
   const recipe4 = {
     title: 'Tender Boiled Eggs',
-    img: 'boiledEggs.jpeg',
+    images: {
+      large: ['boiledEggs.jpeg'],
+      thumb: 'boiledEggs.jpeg',
+    },
     cookingTime: 7,
     servingSize: randomBetween(1, 12),
     favourite: true,
@@ -111,14 +123,20 @@ const loadDummyData = async () => {
 
   const recipe5 = {
     title: 'Pasta with Peanut Sauce',
-    img: 'buckwheatPeanut.jpeg',
+    images: {
+      large: ['buckwheatPeanut.jpeg', 'buckwheatPeanut.jpeg'],
+      thumb: 'buckwheatPeanut.jpeg',
+    },
     cookingTime: 30,
     servingSize: randomBetween(1, 12),
     versions: [mockVersion],
   };
   const recipe6 = {
     title: 'Filled Pancakes',
-    img: 'filledPancakes.jpeg',
+    images: {
+      large: ['filledPancakes.jpeg'],
+      thumb: 'filledPancakes.jpeg',
+    },
     cookingTime: randomBetween(5, 90),
     servingSize: randomBetween(1, 12),
     versions: [mockVersion],
@@ -126,7 +144,10 @@ const loadDummyData = async () => {
 
   const recipe7 = {
     title: 'Green Quiche',
-    img: 'greenQuiche.jpeg',
+    images: {
+      large: ['greenQuiche.jpeg', 'greenQuiche.jpeg', 'greenQuiche.jpeg'],
+      thumb: 'greenQuiche.jpeg',
+    },
     cookingTime: randomBetween(5, 90),
     servingSize: randomBetween(1, 12),
     versions: [mockVersion],
@@ -134,7 +155,10 @@ const loadDummyData = async () => {
 
   const recipe8 = {
     title: 'Omas Nudelsuppe',
-    img: 'noodleSoup.jpeg',
+    images: {
+      large: ['noodleSoup.jpeg', 'noodleSoup.jpeg'],
+      thumb: 'noodleSoup.jpeg',
+    },
     cookingTime: randomBetween(5, 90),
     servingSize: randomBetween(1, 12),
     favourite: true,
@@ -142,7 +166,10 @@ const loadDummyData = async () => {
   };
   const recipe9 = {
     title: 'Oven roasted Root Veggies',
-    img: 'ovenVeggies.jpeg',
+    images: {
+      large: ['ovenVeggies.jpeg'],
+      thumb: 'ovenVeggies.jpeg',
+    },
     cookingTime: randomBetween(5, 90),
     servingSize: randomBetween(1, 12),
     versions: [mockVersion],
@@ -150,14 +177,20 @@ const loadDummyData = async () => {
 
   const recipe10 = {
     title: 'Shrimp Summer Rolls',
-    img: 'summerRolls.jpeg',
+    images: {
+      large: ['summerRolls.jpeg', 'summerRolls.jpeg'],
+      thumb: 'summerRolls.jpeg',
+    },
     cookingTime: randomBetween(5, 90),
     servingSize: randomBetween(1, 12),
     versions: [mockVersion],
   };
   const recipe11 = {
-    title: "Vegetarian Shepherd's Pie",
-    img: 'veggieShepardsPie.jpeg',
+    title: 'Vegetarian Shepherd\'s Pie',
+    images: {
+      large: ['veggieShepardsPie.jpeg', 'veggieShepardsPie.jpeg', 'veggieShepardsPie.jpeg'],
+      thumb: 'veggieShepardsPie.jpeg'
+    },
     cookingTime: randomBetween(5, 90),
     servingSize: randomBetween(1, 12),
     versions: [mockVersion],
