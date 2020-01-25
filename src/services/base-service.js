@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 module.exports = class Service {
   constructor(model) {
     this.model = model;
@@ -15,10 +17,22 @@ module.exports = class Service {
     return this.model.create(item);
   }
 
-  deleteById(id) {
-    // return this.model.deleteOne({ _id: id });
-    const document = this.model.findById(id);
-    return (document.deleted = true);
+  async deleteById(id) {
+    await this.model.findById(id, async function(err, document) {
+      if (err) return err;
+      if (document.deleted) {
+        return 'already deleted';
+      }
+      document.deleted = true;
+
+      // return await document.save();
+      await document.save(function(err, doc) {
+        if (err) return err;
+        console.log('BASE_SERVICE ---------------------');
+        console.log(doc);
+        return doc;
+      });
+    });
   }
 
   delete(query) {

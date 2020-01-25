@@ -56,6 +56,8 @@ router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const user = await UserService.deleteById(id);
+    console.log('USER ROUTES ___________________________________');
+    console.log(user);
     res.send(user);
   } catch (err) {
     res.send(err.response.data.message);
