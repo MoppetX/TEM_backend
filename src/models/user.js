@@ -11,6 +11,10 @@ const UserSchema = new mongoose.Schema({
     minlength: [2, errMsgs.NAME.TOO_SHORT],
     maxlength: [20, errMsgs.NAME.TOO_LONG],
   },
+  deleted: {
+    type: Boolean,
+    default: false,
+  },
   email: {
     type: String,
     required: [true, errMsgs.EMAIL.REQUIRED],
