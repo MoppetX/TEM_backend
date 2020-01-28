@@ -15,10 +15,20 @@ module.exports = class Service {
     return this.model.create(item);
   }
 
-  deleteById(id) {
-    // return this.model.deleteOne({ _id: id });
-    const document = this.model.findById(id);
-    return (document.deleted = true);
+  async deleteById(id) {
+    try {
+      const document = await this.model.findById(id);
+      if (document.deleted) {
+        return {
+          message: 'already deleted',
+          document,
+        };
+      }
+      document.deleted = true;
+      return await document.save();
+    } catch (err) {
+      return err;
+    }
   }
 
   delete(query) {

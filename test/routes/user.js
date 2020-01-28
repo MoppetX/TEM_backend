@@ -48,10 +48,10 @@ test.beforeEach(async t => {
   };
 });
 
-const checkLitmusResponse = (t, res) => {
-  t.is(res.status, 200);
-  t.is(res.text, `Test route for ${res.req.path} [${res.req.method}]`);
-};
+// const checkLitmusResponse = (t, res) => {
+//   t.is(res.status, 200);
+//   t.is(res.text, `Test route for ${res.req.path} [${res.req.method}]`);
+// };
 
 // test('litmus tests for GET/POST/DELETE/PUT', async t => {
 //   t.plan(8);
@@ -159,12 +159,18 @@ test.serial('delete one user via params', async t => {
   const res = await request(app).delete(`${userRoute}/${userId}`);
 
   t.is(res.status, 200);
-  t.true(res.body.ok === 1);
+  t.true(res.ok);
 
-  // Verify that user is no longer in the DB
-  const fetch = await request(app).get(`${userRoute}/${userId}`);
+  // Verify that user was updated in DB
+  const { body: fetch } = await request(app).get(`${userRoute}/${userId}`);
 
-  t.is(fetch.status, 404);
+  t.is(true, fetch.deleted);
+
+  // Try to delete an already deleted user
+  const { body: fetch2 } = await request(app).delete(`${userRoute}/${userId}`);
+
+  t.is('already deleted', fetch2.message);
+  t.is(true, fetch2.deleted);
 });
 
 // clearing Dummy data

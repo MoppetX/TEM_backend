@@ -17,7 +17,6 @@ test.beforeEach(t => {
 });
 
 test('creating new recipe with valid input', async t => {
-  t.plan(4);
 
   const validRecipe = new RecipeModel(t.context.recipe);
   const error = validRecipe.validateSync();
@@ -27,6 +26,9 @@ test('creating new recipe with valid input', async t => {
     Array.isArray(validRecipe.versions) && validRecipe.versions.length === 0,
   );
   t.true(Array.isArray(validRecipe.users));
+  t.is("default.jpeg", validRecipe.images.thumb);
+  t.is(1, validRecipe.images.large.length);
+  t.false(validRecipe.deleted);
   t.truthy(validRecipe.created);
 });
 
@@ -49,7 +51,7 @@ const testInput = (input, index, t, property, errorMessages) => {
 
 test('creating a recipe with invalid title', async t => {
   const property = 'title';
-  const badInputs = [null, 'e', 'sssssssssssssssssssssssssssssss'];
+  const badInputs = [null, 'e', '1234567890 1234567890 1234567890 1234567890'];
   const errorMessages = getErrMsgArray(property);
 
   badInputs.forEach((input, index) => {
