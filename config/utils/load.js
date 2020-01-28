@@ -52,7 +52,7 @@ const loadDummyData = async () => {
       'Food qualities braise chicken cuts bowl through slices butternut snack.',
       'Tender meat juicy dinners. One-pot low heat plenty of time adobo fat raw soften fruit. sweet renders bone-in marrow richness kitchen, fricassee basted pork shoulder.',
       'Delicious butternut squash hunk. Flavor centerpiece plate, delicious ribs bone-in meat, excess chef end. sweet effortlessly pork, low heat smoker soy sauce flavor meat, rice fruit fruit. Romantic fall-off-the-bone butternut chuck rice burgers.',
-      'Juicy meatballs brisket slammin\' baked shoulder. Juicy smoker soy sauce burgers brisket. polenta mustard hunk greens.',
+      "Juicy meatballs brisket slammin' baked shoulder. Juicy smoker soy sauce burgers brisket. polenta mustard hunk greens.",
       'Wine technique snack skewers chuck excess. Oil heat slowly.',
     ],
     ingredients: [
@@ -80,7 +80,7 @@ const loadDummyData = async () => {
     title: 'Eggs Benedict',
     images: {
       large: ['eggsBenny.jpeg', 'eggsBenny.jpeg'],
-      thumb: 'eggsBenny_small.jpeg',
+      thumb: 'eggsBenny.jpeg',
     },
     cookingTime: 5,
     servingSize: randomBetween(1, 12),
@@ -186,10 +186,14 @@ const loadDummyData = async () => {
     versions: [mockVersion],
   };
   const recipe11 = {
-    title: 'Vegetarian Shepherd\'s Pie',
+    title: "Vegetarian Shepherd's Pie",
     images: {
-      large: ['veggieShepardsPie.jpeg', 'veggieShepardsPie.jpeg', 'veggieShepardsPie.jpeg'],
-      thumb: 'veggieShepardsPie.jpeg'
+      large: [
+        'veggieShepardsPie.jpeg',
+        'veggieShepardsPie.jpeg',
+        'veggieShepardsPie.jpeg',
+      ],
+      thumb: 'veggieShepardsPie.jpeg',
     },
     cookingTime: randomBetween(5, 90),
     servingSize: randomBetween(1, 12),
