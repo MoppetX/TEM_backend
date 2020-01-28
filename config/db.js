@@ -27,7 +27,7 @@ const connectDB = async () => {
     });
     console.log(`SUCCESS: MongoDB Connected to ${dbUrl}`);
 
-    if (process.env.LOAD_SEED_DATA === 'true') {
+    if (process.env.LOAD_SEED_DATA === 'true' || true) {
       await loadDummyData();
       console.log('SUCCESS: Seed data loaded');
     }
