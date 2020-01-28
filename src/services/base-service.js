@@ -16,22 +16,19 @@ module.exports = class Service {
   }
 
   async deleteById(id) {
-    return await this.model.findById(id, async function(err, document) {
-      if (err) return err;
+    try {
+      const document = await this.model.findById(id);
       if (document.deleted) {
-        return 'already deleted';
+        return {
+          message: 'already deleted',
+          document,
+        };
       }
       document.deleted = true;
-
-      // return await document.save();
-      const doc = await document.save(function(err, doc) {
-        if (err) return err;
-        console.log('BASE_SERVICE ---------------------');
-        console.log(doc);
-        return doc;
-      });
-      return doc;
-    });
+      return await document.save();
+    } catch (err) {
+      return err;
+    }
   }
 
   delete(query) {
